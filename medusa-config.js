@@ -2,23 +2,23 @@ const dotenv = require('dotenv')
 
 let ENV_FILE_NAME = '';
 switch (process.env.NODE_ENV) {
-	case 'production':
-		ENV_FILE_NAME = '.env.production';
-		break;
-	case 'staging':
-		ENV_FILE_NAME = '.env.staging';
-		break;
-	case 'test':
-		ENV_FILE_NAME = '.env.test';
-		break;
-	case 'development':
-	default:
-		ENV_FILE_NAME = '.env';
-		break;
+  case 'production':
+    ENV_FILE_NAME = '.env.production';
+    break;
+  case 'staging':
+    ENV_FILE_NAME = '.env.staging';
+    break;
+  case 'test':
+    ENV_FILE_NAME = '.env.test';
+    break;
+  case 'development':
+  default:
+    ENV_FILE_NAME = '.env';
+    break;
 }
 
 try {
-	dotenv.config({ path: process.cwd() + '/' + ENV_FILE_NAME });
+  dotenv.config({ path: process.cwd() + '/' + ENV_FILE_NAME });
 } catch (e) {
 }
 
@@ -52,6 +52,31 @@ const plugins = [
   //     webhook_secret: STRIPE_WEBHOOK_SECRET,
   //   },
   // },
+  {
+    resolve: `medusa-plugin-algolia`,
+    options: {
+      application_id: process.env.ALGOLIA_APP_ID,
+      admin_api_key: process.env.ALGOLIA_ADMIN_API_KEY,
+      settings: {
+        products: {
+          searchableAttributes: ["title", "description"],
+          attributesToRetrieve: [
+            "id",
+            "title",
+            "description",
+            "handle",
+            "thumbnail",
+            "variants",
+            "variant_sku",
+            "options",
+            "collection_title",
+            "collection_handle",
+            "images",
+          ],
+        },
+      },
+    },
+  },
 ];
 
 module.exports = {
