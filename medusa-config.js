@@ -60,18 +60,7 @@ const plugins = [
       settings: {
         products: {
           searchableAttributes: ["title", "description"],
-          attributesToRetrieve: [
-            "id",
-            "title",
-            "description",
-            "handle",
-            "thumbnail",
-            "variants",
-            "variant_sku",
-            "options",
-            "collection_title",
-            "collection_handle",
-            "images",
+          attributesToRetrieve: ["id", "title", "description", "handle", "thumbnail", "variants", "variant_sku", "options", "collection_title", "collection_handle", "images",
           ],
         },
       },
