@@ -23,7 +23,7 @@ try {
 }
 
 // CORS when consuming Medusa from admin
-const ADMIN_CORS = process.env.ADMIN_CORS || "https://admin.leatherlifestyle.store";
+const ADMIN_CORS = process.env.ADMIN_CORS || "https://admin.leatherlifestyle.store,localhost:7000,http://localhost:7000";
 
 // CORS to avoid issues when consuming Medusa from a client
 const STORE_CORS = process.env.STORE_CORS || "https://leatherlifestyle.store,https://www.leatherlifestyle.store,http://localhost:8000,localhost:8000";
