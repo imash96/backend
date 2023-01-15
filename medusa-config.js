@@ -80,3 +80,5 @@ module.exports = {
   },
   plugins,
 };
+
+console.log(module.exports)
